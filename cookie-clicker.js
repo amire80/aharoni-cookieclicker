@@ -9,15 +9,16 @@
 		intervals: {},
 		productCaps: [
 			240, // Cursors
-			100, // Grandmas
-			100, // Farms
-			100, // Factories
-			100, // Mines
-			100, // Shipments
-			100, // Alchemy labs
-			0, // Portals, as much as possible
+			200, // Grandmas
+			150, // Farms
+			150, // Factories
+			150, // Mines
+			150, // Shipments
+			150, // Alchemy labs
+			150, // Portals
 			0, // Time machines, as much as possible
-			0 // Antimatter condensers, as much as possible
+			0, // Antimatter condensers, as much as possible
+			0 // Prisms, as much as possible
 		],
 		intervalLengths: {
 			big: 100,
@@ -32,12 +33,16 @@
 			},
 
 			golden: function () {
-				var $golden = $( '#goldenCookie' );
+				var goldenBackground,
+					$golden = $( '#goldenCookie' );
 
-				if ( $golden.css( 'display' ) === 'block' &&
-					$golden.css( 'background-image' ).match( 'goldC' )
-				) {
-					$golden.click();
+				if ( $golden.css( 'display' ) === 'block' ) {
+					goldenBackground = $golden.css( 'background-image' );
+					if ( goldenBackground.match( 'goldC' ) ||
+						goldenBackground.match( 'heart' )
+					) {
+						$golden.click();
+					}
 				}
 			},
 
@@ -70,7 +75,7 @@
 				var i, $product, ownedText, owned,
 					productCaps = window.aharoniCookieClicker.productCaps;
 
-				for ( i = 9; i >= 0; i-- ) {
+				for ( i = productCaps.length - 1; i >= 0; i-- ) {
 					$product = $( '#product' + i );
 
 					if ( !$product.hasClass( 'enabled' ) ) {
