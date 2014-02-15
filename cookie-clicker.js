@@ -25,7 +25,8 @@
 			golden: 1000,
 			deer: 1000,
 			wrinkler: 5000,
-			product: 5000
+			product: 5,
+			pledge: 5000
 		},
 		clickers: {
 			big: function () {
@@ -91,6 +92,30 @@
 						return;
 					}
 				}
+			},
+
+			pledge: function () {
+				var i, pledgeHandler,
+					$upgradeContainer = $( '#upgrades' );
+
+				for ( i = 0; i < Game.UpgradesById.length; i++ ) {
+					if ( Game.UpgradesById[i].name === 'Elder Pledge' ) {
+						pledgeHandler = 'Game.UpgradesById[' + i + '].buy()';
+
+						break;
+					}
+				}
+
+				$upgradeContainer.find( '.crate.upgrade.enabled' ).each( function ( i, upgrade ) {
+					var $upgrade = $( upgrade ),
+						onclickProp = $upgrade.prop( 'onclick' );
+
+					if ( onclickProp.toString().indexOf( pledgeHandler ) !== -1 ) {
+						$upgrade.click();
+
+						return false;
+					}
+				} );
 			}
 		},
 		start: function ( goal ) {
