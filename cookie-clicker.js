@@ -25,7 +25,7 @@
 			golden: 1000,
 			deer: 1000,
 			wrinkler: 5000,
-			product: 5,
+			product: 5000,
 			pledge: 5000
 		},
 		clickers: {
