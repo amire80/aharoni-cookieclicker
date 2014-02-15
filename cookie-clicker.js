@@ -130,6 +130,8 @@
 			}
 		},
 		startAll: function () {
+			var goal;
+
 			for( goal in window.aharoniCookieClicker.clickers ) {
 				if ( window.aharoniCookieClicker.clickers.hasOwnProperty( goal ) ) {
 					window.aharoniCookieClicker.start( goal );
@@ -147,6 +149,8 @@
 			}
 		},
 		stopAll: function () {
+			var goal;
+
 			for( goal in window.aharoniCookieClicker.clickers ) {
 				if ( window.aharoniCookieClicker.clickers.hasOwnProperty( goal ) ) {
 					window.aharoniCookieClicker.stop( goal );
