@@ -7,27 +7,8 @@
 
 	window.aharoniCookieClicker = {
 		intervals: {},
-		productCaps: [
-			240, // Cursors
-			200, // Grandmas
-			150, // Farms
-			150, // Factories
-			150, // Mines
-			150, // Shipments
-			150, // Alchemy labs
-			150, // Portals
-			0, // Time machines, as much as possible
-			0, // Antimatter condensers, as much as possible
-			0 // Prisms, as much as possible
-		],
-		intervalLengths: {
-			big: 100,
-			golden: 1000,
-			deer: 1000,
-			wrinkler: 5000,
-			product: 5000,
-			pledge: 5000
-		},
+		productCaps: [],
+		intervalLengths: {},
 		clickers: {
 			big: function () {
 				$( '#bigCookie' ).click();
@@ -118,6 +99,31 @@
 				} );
 			}
 		},
+		resetProductCaps: function () {
+			aharoniCookieClicker.productCaps = [
+				240, // Cursors
+				200, // Grandmas
+				150, // Farms
+				150, // Factories
+				150, // Mines
+				150, // Shipments
+				150, // Alchemy labs
+				150, // Portals
+				0, // Time machines, as much as possible
+				0, // Antimatter condensers, as much as possible
+				0 // Prisms, as much as possible
+			];
+		},
+		resetIntervalLengths: function () {
+			aharoniCookieClicker.intervalLengths = {
+				big: 100,
+				golden: 1000,
+				deer: 1000,
+				wrinkler: 5000,
+				product: 5000,
+				pledge: 5000
+			};
+		},
 		start: function ( goal ) {
 			console.log( 'starting ' + goal );
 			if ( this.clickers[goal] ) {
@@ -159,5 +165,7 @@
 		}
 	};
 
+	window.aharoniCookieClicker.resetIntervalLengths();
+	window.aharoniCookieClicker.resetProductCaps();
 	window.aharoniCookieClicker.startAll();
 } )();
